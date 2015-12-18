@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<property name="src.dir" value="${basedir}/src"/>
+	<property name="build.dir" value="${basedir}/build"/>
+	<property name="dist.dir" value="${basedir}/dist"/>
+	
+	<property name="javac.debug" value="true"/>
+    <property name="compile.deprecation" value="true"/>
+    <property name="compile.debug" value="true"/>
+    <property name="compile.optimize" value="false"/>
+    
+	<property file="build.properties"/>
+			
+	<property name="lib.dir" location="${basedir}/lib"/>
+    <property file="${lib.dir}/lib.properties"/>
+    
+    
+    <!-- =================================================================== -->
+    <!-- Classpaths                                                          -->
+    <!-- =================================================================== -->
+    
+    <path id="lib.classpath">
+    	<fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+</project>
