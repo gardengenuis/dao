@@ -9,6 +9,10 @@
     	<dependency org="hibernate" name="hibernate-core" rev="4.3.6"/>
     	<dependency org="hibernate" name="hibernate-jpa-2.1-api" rev="1.0.0"/>
     	
+    	<dependency org="mybatis" name="mybatis-spring" rev="1.2.5"/>
+		<dependency org="mybatis" name="mybatis" rev="3.3.1"/>
+		<dependency org="mybatis" name="mybatis-paginator" rev="1.2.17"/>
+		
         <dependency org="garden" name="utility-garden" rev="0.0.1"/>
     </dependencies>
 </ivy-module>
