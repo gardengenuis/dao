@@ -47,6 +47,7 @@ public interface IDAO<T> {
 	public T findById(Class<T> clz, Object id);
 	public Long save(T obj);
 	public void saveOrUpdate(T obj);
+	public void update(T obj);
 	public List<T> findAll(Class<T> clz);
 	public void delete(T obj);
 	public void deleteAll(Class<T> clz);

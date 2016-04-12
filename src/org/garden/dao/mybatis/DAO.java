@@ -246,5 +246,12 @@ public class DAO<T> implements IDAO<T> {
 	public void excuteSql(String sql) {
 		log.error("MyBatis do not support excuteSql(String sql) method...");
 	}
+	/* (non-Javadoc)
+	 * @see org.garden.dao.IDAO#update(java.lang.Object)
+	 */
+	@Override
+	public void update(T obj) {
+		this.sqlSessionTemplate.update(obj.getClass().getSimpleName() + ".update", obj);
+	}
 
 }

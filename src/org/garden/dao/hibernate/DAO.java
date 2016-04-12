@@ -391,4 +391,12 @@ public class DAO<T> implements IDAO<T> {
 		
 		query.executeUpdate();
 	}
+	/* (non-Javadoc)
+	 * @see org.garden.dao.IDAO#update(java.lang.Object)
+	 */
+	@Override
+	public void update(T obj) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.update(obj);
+	}
 }
