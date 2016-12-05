@@ -48,6 +48,7 @@ public interface IDAO<T> {
 	public Long save(T obj);
 	public void saveOrUpdate(T obj);
 	public void update(T obj);
+	public void update(String hql, List<Map<String, Object>> states);
 	public List<T> findAll(Class<T> clz);
 	public void delete(T obj);
 	public void deleteAll(Class<T> clz);

@@ -57,7 +57,7 @@ public class DAO<T> implements IDAO<T> {
 
 	private Log log = LogFactory.getLog(DAO.class);
 	
-	protected SessionFactory sessionFactory;
+	public SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -398,5 +398,26 @@ public class DAO<T> implements IDAO<T> {
 	public void update(T obj) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.update(obj);
+	}
+	/* (non-Javadoc)
+	 * @see org.garden.dao.IDAO#update(java.lang.String, java.util.List)
+	 */
+	@Override
+	public void update(String hql, List<Map<String, Object>> states) {
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		for ( Map<String, Object> state : states) {
+			for ( String key : state.keySet()) {
+				Object value = state.get(key);
+				
+				if ( value instanceof List) {
+					query.setParameterList(key, (List<?>) value);
+				} else {
+					query.setParameter(key, value);
+				}
+			}
+		}
+		
+		query.executeUpdate();
 	}
 }

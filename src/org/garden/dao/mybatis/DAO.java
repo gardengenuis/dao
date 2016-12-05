@@ -253,5 +253,12 @@ public class DAO<T> implements IDAO<T> {
 	public void update(T obj) {
 		this.sqlSessionTemplate.update(obj.getClass().getSimpleName() + ".update", obj);
 	}
+	/* (non-Javadoc)
+	 * @see org.garden.dao.IDAO#update(java.lang.String, java.util.List)
+	 */
+	@Override
+	public void update(String hql, List<Map<String, Object>> states) {
+		log.error("MyBatis do not support update(String hql, List<Map<String, Object>> states) method...");
+	}
 
 }
